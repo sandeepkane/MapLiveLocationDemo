@@ -80,5 +80,6 @@
         android:layout_below="@+id/ll_otp_characters"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:background="@drawable/on_screen_button_effect"
         android:text="@string/button_validate_otp" />
 </RelativeLayout>

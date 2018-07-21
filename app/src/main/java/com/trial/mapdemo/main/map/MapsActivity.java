@@ -50,6 +50,9 @@ import com.trial.mapdemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.trial.mapdemo.facade.constants.MapDemoConstants.KEY_CAMERA_POSITION;
+import static com.trial.mapdemo.facade.constants.MapDemoConstants.KEY_LOCATION;
+
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -58,8 +61,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private LocationRequest locationRequest;
     private GoogleApiClient googleApiClient;
-    private CameraPosition cameraPosition;
-    private GeoDataClient geoDataClient;
     private PlaceDetectionClient placeDetectionClient;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private static final int DEFAULT_ZOOM = 15;
@@ -68,8 +69,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private boolean isLocationPermissionGranted;
 
     private Location lastKnownLocation;
-    private static final String KEY_CAMERA_POSITION = "camera_position";
-    private static final String KEY_LOCATION = "location";
     private GoogleMap mMap;
 
     private static final int M_MAX_ENTRIES = 50;
@@ -88,12 +87,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null) {
             lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-            cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
         }
 
         setContentView(R.layout.activity_maps);
 
-        geoDataClient = Places.getGeoDataClient(this);
         placeDetectionClient = Places.getPlaceDetectionClient(this);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         positionChanges = new ArrayList<>();

@@ -16,4 +16,7 @@
     <!-- ERROR -->
     <string name="error_enter_valid_country_code">Enter Valid Country Code</string>
     <string name="error_enter_valid_phone_number">Enter Valid Phone Number</string>
+
+    <!-- SYMBOL -->
+    <string name="hyphen">-</string>
 </resources>

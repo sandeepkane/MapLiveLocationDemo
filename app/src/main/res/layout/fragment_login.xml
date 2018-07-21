@@ -29,16 +29,16 @@
             android:layout_height="wrap_content"
             android:ems="3"
             android:gravity="center"
-            android:maxLength="3"
             android:hint="@string/hint_country_code"
             android:inputType="number"
             android:maxEms="4"
+            android:maxLength="3"
             android:minEms="3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-" />
+            android:text="@string/hyphen" />
 
         <EditText
             android:id="@+id/et_phone_number"
@@ -62,5 +62,6 @@
         android:layout_below="@+id/ll_number_details"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:background="@drawable/on_screen_button_effect"
         android:text="@string/button_send_otp" />
 </RelativeLayout>
